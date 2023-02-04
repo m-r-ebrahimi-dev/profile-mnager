@@ -1,4 +1,4 @@
-let data = localStorage.getItem("data") || {
+let data = JSON.parse(localStorage.getItem("data")) || {
   name: "Mohammad Ahmadii",
   about: "Sales Repesentative",
   phone: "989134044621",
@@ -6,6 +6,7 @@ let data = localStorage.getItem("data") || {
   site: "www.mernstack.com",
   location: "123 anywhere",
   img: "./img/tyler-nix-PQeoQdkU9jQ-1024x1024.jpg",
+  color: "#ff1493",
 };
 
 let root = document.documentElement;
@@ -16,6 +17,9 @@ const body = document.getElementsByTagName("body").item(0);
 const save = document.getElementById("save");
 const colorPic = document.getElementById("color");
 function renderData() {
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(localStorage.getItem("data"))
+  root.style.setProperty("--primary", data.color);
   banner.innerHTML = `
     <div class="profile" id="profile">
         <div class="avatar " id="avatar">
@@ -46,9 +50,8 @@ renderData();
 
 showModal.addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("new-name").value=data.name;
+  document.getElementById("new-name").value = data.name;
   modal.style.display = "flex";
-
 });
 
 modal.addEventListener("click", (e) => {
@@ -56,25 +59,19 @@ modal.addEventListener("click", (e) => {
   parent === body && (modal.style.display = "none");
 });
 
-colorPic.addEventListener('change',(e)=>{
-    const newColor = document.getElementById("color").value;
-    root.style.setProperty('--primary', newColor);
-})
-
 save.addEventListener("click", (e) => {
   e.preventDefault();
-  
+  const newColor = document.getElementById("color").value;
   const newName = document.getElementById("new-name").value;
-  let radios=document.getElementsByClassName("radio");
-  radios=[...radios]
-  radios=radios.filter(element => element.checked===true)[0];
-  let labels=document.getElementsByTagName("label");
-  labels=[...labels];
-  labels=labels.filter(e=>e.nextElementSibling===radios)[0];
-  const newImg=labels.children[0].getAttribute('src');
-  data = { ...data, name: newName,img:newImg };
-  
+  let radios = document.getElementsByClassName("radio");
+  radios = [...radios];
+  radios = radios.filter((element) => element.checked === true)[0];
+  let labels = document.getElementsByTagName("label");
+  labels = [...labels];
+  labels = labels.filter((e) => e.nextElementSibling === radios)[0];
+  const newImg = labels.children[0].getAttribute("src");
+  data = { ...data, name: newName, img: newImg, color: newColor };
+
   modal.style.display = "none";
-  //   localStorage.setItem("data", data);
   renderData();
 });
