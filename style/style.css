@@ -1,5 +1,6 @@
 :root {
   --dark: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
   --primary: rgb(255, 20, 147);
 }
 
@@ -18,20 +19,28 @@ html {
 body {
   font-family: "Comfortaa", cursive, "Roboto", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
+  overflow: hidden;
 }
 
 body::after {
+  z-index: -10;
   position: absolute;
   content: "";
   display: block;
   width: 170rem;
   height: 60rem;
-  background: linear-gradient(180deg, var(--primary) 33%,var(--dark) 33% 66%,var(--primary) 66% 100%);
+  background: linear-gradient(
+    180deg,
+    var(--primary) 33%,
+    var(--dark) 33% 66%,
+    var(--primary) 66% 100%
+  );
   transform: rotate(45deg);
   bottom: -10rem;
-  left:-70rem;
+  left: -70rem;
 }
 body::before {
+  z-index: -10;
   position: absolute;
   content: "";
   display: block;
@@ -41,4 +50,111 @@ body::before {
   transform: rotate(45deg);
   top: 0;
   right: -50rem;
+}
+.profile {
+  position: relative;
+  margin-right: 10rem;
+}
+.avatar {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 100%;
+  background: linear-gradient(var(--primary) 50%, var(--white) 50% 100%);
+  transform: rotate(-135deg);
+}
+.photo {
+  width: 30rem;
+  height: 30rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  transform: rotate(135deg);
+}
+.company {
+  background-color: rgba(14, 5, 45);
+  width: 15rem;
+  height: 15rem;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -5rem;
+  left: 20rem;
+}
+.logo {
+  width: 15rem;
+  height: 15rem;
+}
+.banner {
+  margin: auto;
+  display: flex;
+  width: 80rem;
+  padding-top: 15rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.border-bottom {
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--dark);
+}
+.btn {
+  position: absolute;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 0.4rem;
+  padding: 0.8rem 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  right: 10rem;
+  bottom: 10rem;
+}
+.btn:hover {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+svg {
+  margin-right: 3rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  display: none;
+}
+
+.modal-body{
+  position: absolute;
+  height:   60vh;
+  width: 70vw;
+  background-color: var(--white);
+  border-radius: 1rem;
+  top: 20%;
+  left: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5rem;
+  margin: auto;
+}
+.modal img{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
 }

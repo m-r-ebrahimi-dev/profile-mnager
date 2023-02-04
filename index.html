@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Manager</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="banner" id="banner"></div>
+    
+    <button class="btn" id="showModal">My Input</button>
+    
+    <div class="modal" id="modal">
+        <div class="modal-body" id="modal-body">
+            <h2 class="modal-title" id="modal-title">Choose your prefer</h2>
+                <input type="color" id="color">
+                <input type="text" id="new-name">
+                <div>
+                    <label for="pic-one">
+                        <img src="./img/image-lorem-face-133.jpg"/>
+                    </label>
+                    <input class="radio" type="radio" name="emotion" id="pic-one"  />
+                    <label for="pic-two">
+                        <img src="./img/women-s-white-and-black-button-up-collared-shirt-774909-2-1024x1024.jpg"/>
+                    </label>
+                    <input class="radio" type="radio" name="emotion" id="pic-two"  />
+                    <label for="pic-three">
+                        <img src="./img/tyler-nix-PQeoQdkU9jQ-1024x1024.jpg"/>
+                    </label>
+                    <input class="radio" type="radio" name="emotion" id="pic-three"  />
+                </div>
+                <button class="btn" id="save" type="submit">save</button>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
