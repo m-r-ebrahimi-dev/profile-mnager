@@ -1,0 +1,44 @@
+:root {
+  --dark: rgb(0, 0, 0);
+  --primary: rgb(255, 20, 147);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Comfortaa", cursive, "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}
+
+body::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 170rem;
+  height: 60rem;
+  background: linear-gradient(180deg, var(--primary) 33%,var(--dark) 33% 66%,var(--primary) 66% 100%);
+  transform: rotate(45deg);
+  bottom: -10rem;
+  left:-70rem;
+}
+body::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100rem;
+  height: 20rem;
+  background: linear-gradient(180deg, var(--primary) 50%, var(--dark) 50% 100%);
+  transform: rotate(45deg);
+  top: 0;
+  right: -50rem;
+}
